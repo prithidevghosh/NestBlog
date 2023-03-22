@@ -7,6 +7,8 @@ import { User } from '../models/user.interface';
 import { from } from 'rxjs/internal/observable/from';
 import { AuthService } from 'src/auth/services/auth.service';
 import { catchError,map, switchMap, throwError } from 'rxjs';
+import { IPaginationOptions, paginate } from 'nestjs-typeorm-paginate';
+import { Pagination } from 'nestjs-typeorm-paginate/dist/pagination';
 
 
 @Injectable()
@@ -56,6 +58,15 @@ export class UserService {
             })
         );
     }
+
+    paginate(options: IPaginationOptions): Observable<Pagination<User>>{
+          return from(paginate<User>(this.userRepository,options)).pipe(
+            map((userspageable:Pagination<User>)=>{
+                userspageable.items.forEach(function (v) {delete v.password});
+                return userspageable;
+            })
+          )
+      }
 
     deleteOne(id:number):Observable<any>{
         
