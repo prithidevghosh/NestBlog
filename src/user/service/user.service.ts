@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Observable } from 'rxjs/internal/Observable';
-import { Repository } from 'typeorm';
+import { Like, Repository } from 'typeorm';
 import { UserEntity } from '../models/user.entity';
 import { User } from '../models/user.interface';
 import { from } from 'rxjs/internal/observable/from';
@@ -68,6 +68,50 @@ export class UserService {
           )
       }
 
+    paginateFilterbyUsername(options:IPaginationOptions,user:User):Observable<Pagination<User>>{
+        return from(this.userRepository.findAndCount({
+            skip:0,
+            take:Number(options.limit)||10,
+            order:{
+                id:"ASC"
+            },
+            select:["id","email","name","username","role"],
+            where:[
+                {username:Like(`${user.username}`)}
+            ]
+        })).pipe(
+            map(([user,totaluser])=>{
+                console.log(user);
+                const userspageable:Pagination<User>={
+                 
+                    
+                    items:user,
+
+                    links:{
+                      first:options.route+`?limit=${options.limit}`,
+                      previous:options.route+``,
+                      next:options.route+`?limit=${options.limit}&page=${Number(options.page)+1}`,
+                      last:options.route+`?limit=${options.limit}&page=${Math.ceil(totaluser/Number(options.limit))}`
+
+                    },
+
+                   meta:{
+                    currentPage:Number(options.page),
+                    totalItems: totaluser,
+                    itemCount: user.length,
+                    itemsPerPage: Number(options.limit),
+                    totalPages: Math.ceil(totaluser/Number(options.limit)),
+                    
+                   }
+                }
+
+               
+
+                return userspageable;
+            })
+        )
+    }
+
     deleteOne(id:number):Observable<any>{
         
         return from(this.userRepository.delete(id));
@@ -76,7 +120,9 @@ export class UserService {
     updateOne(id:number,user:User):Observable<any>{
         delete user.email;
         delete user.password;
-        return from(this.userRepository.update(id,user));
+        return from(this.userRepository.update(id,user)).pipe(
+            switchMap(()=>(this.findOne(id)))
+        );
     }
 
     updateRoleofUser(id:number,user:User):Observable<any>{
