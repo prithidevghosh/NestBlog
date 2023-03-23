@@ -30,7 +30,7 @@
 ```bash
 
 git clone https://github.com/prithidevghosh/NestBlog.git
-
+```
 ## Installation
 
 ```bash
