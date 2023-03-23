@@ -37,7 +37,7 @@ git clone https://github.com/prithidevghosh/NestBlog.git
 <p>Add a .env file in the api folder </p>
 
 <ul>
-<li>add your own DATABASE_URL in the .env file</li>
+<li>add your own DATABASE_URL in the .env file (setup an instance in "ElephantSQL" and get the URL from "details")</li>
 <li>add your own JWT_SECRET in the .env file</li>
 </ul>
  
