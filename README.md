@@ -26,6 +26,10 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Clone the repo
+
+git clone https://github.com/prithidevghosh/NestBlog.git
+
 ## Installation
 
 ```bash
