@@ -1,0 +1,415 @@
+{
+	"info": {
+		"_postman_id": "1ee59da4-4069-48b3-a240-f2a9cf6c4c92",
+		"name": "Blog_website_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26116850"
+	},
+	"item": [
+		{
+			"name": "create a user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Nanda\",\r\n    \"username\":\"Ghosh3\",\r\n     \"email\":\"nanda@email.com\",\r\n     \"password\":\"abcd\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find one particular user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update a user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6Inl1dnJhaiIsInVzZXJuYW1lIjoiR2hvc2g1IiwiZW1haWwiOiJ5dXZpQGVtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwicHJvZmlsZUltYWdlIjpudWxsLCJpYXQiOjE2Nzk1MjY3ODYsImV4cCI6MTY3OTYyNjc4Nn0.8U8LZYiypiGXS8VA1CN2bRlo1HrgnbXGnPvxB89d6Kc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"yuvraj golu kumar\"\r\n \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login a user  ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"vijay@email.com\",\r\n    \"password\":\"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change user role",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6Imt1bGplZXQiLCJ1c2VybmFtZSI6Ikdob3NoNiIsImVtYWlsIjoia3VsamVldEBlbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2Nzk0OTAyNzQsImV4cCI6MTY3OTU5MDI3NH0.YVW_ff7-EUkv6Xr4sO_zGzUnwKpBe-54aW1AsP-hPW0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"role\":\"editor\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/1/role",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"1",
+						"role"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload profile image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6Imt1bGplZXQiLCJ1c2VybmFtZSI6Ikdob3NoNiIsImVtYWlsIjoia3VsamVldEBlbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJwcm9maWxlSW1hZ2UiOiIxNjc5NTIyOTA0NTA4LTY3Njg1MjYyLmpwZyIsImlhdCI6MTY3OTUyNDcxMCwiZXhwIjoxNjc5NjI0NzEwfQ.U5PDVV-Q_BHnX-98TvRGZ8XEpzYr6rDhVxG9hk3qSIM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/prith/Downloads/transactions.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view profile image",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/profileimage/1679524730628-545370864.jpg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"profileimage",
+						"1679524730628-545370864.jpg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create a blog",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywibmFtZSI6InZpamF5IiwidXNlcm5hbWUiOiJHaG9zaDciLCJlbWFpbCI6InZpamF5QGVtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwicHJvZmlsZUltYWdlIjpudWxsLCJpYXQiOjE2Nzk1NTUyMTIsImV4cCI6MTY3OTY1NTIxMn0.IU8pZx5hNLlyzp5Kdgd1UPZvUTxI4Gv_vfuhBoQs1YM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"my second blog\",\r\n    \"description\":\"i am writing this as my second blog\",\r\n    \"body\":\"this is the body of my second blog\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/blogs/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"blogs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update a blog-jwtAuthenticated",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6Inl1dnJhaiBnb2x1IGt1bWFyIiwidXNlcm5hbWUiOiJHaG9zaDUiLCJlbWFpbCI6Inl1dmlAZW1haWwuY29tIiwicm9sZSI6InVzZXIiLCJwcm9maWxlSW1hZ2UiOm51bGwsImlhdCI6MTY3OTU4ODM5OSwiZXhwIjoxNjc5Njg4Mzk5fQ.22n4rEvztfpKDYTUgeOyDLKNrEn9yg26zv-ES6gAg6c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"my updated second blog\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/blog-entries/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"blog-entries",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all blogs in paginated format",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/blog-entries",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"blog-entries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a blog - jwtAuthenticated",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywibmFtZSI6InZpamF5IiwidXNlcm5hbWUiOiJHaG9zaDciLCJlbWFpbCI6InZpamF5QGVtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwicHJvZmlsZUltYWdlIjpudWxsLCJpYXQiOjE2Nzk1ODgxNDMsImV4cCI6MTY3OTY4ODE0M30.BW2X52YWg9l3Yd7YI8B_SAoh6vLXinrJfStO2jair4o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/blog-entries/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"blog-entries",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get blogs using blogID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/blog-entries/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"blog-entries",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
