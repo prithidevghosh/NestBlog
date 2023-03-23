@@ -30,6 +30,17 @@
 ```bash
 
 git clone https://github.com/prithidevghosh/NestBlog.git
+
+```
+## Setup Database & use your own JWT secret key
+
+<p>Add a .env file in the api folder 
+
+add your own DATABASE_URL in the .env file
+add your own JWT_SECRET in the .env file
+</p>
+ ```bash
+$ npm install
 ```
 ## Installation
 
