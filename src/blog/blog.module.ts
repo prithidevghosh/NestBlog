@@ -10,7 +10,8 @@ import { BlogService } from './service/blog.service';
     imports:[
         TypeOrmModule.forFeature([BlogEntryEntity]),
         AuthModule,
-        UserModule
+        UserModule,
+    
     ],
     controllers: [BlogController],
     providers:[BlogService]

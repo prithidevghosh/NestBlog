@@ -34,13 +34,31 @@ export class BlogService {
  }
 
  findByUser(userId: number): Observable<BlogEntry[]> {
-    return from(this.blogRepository.find({
-        where:{
-            author:userId
-        },
-         
-        relations: ['author']
-    })).pipe(map((blogEntries: BlogEntry[]) => blogEntries))
-}
+    return this.userservice.findOne(userId).pipe(
+      switchMap(user => {
+        return from(this.blogRepository.find({
+          where: {
+            author: user
+          },
+          relations: ['author']
+        }));
+      }),
+      map((blogEntries: BlogEntry[]) => blogEntries)
+    );
+  }
 
+  findOne(id:number):Observable<BlogEntry>{
+    return from(this.blogRepository.findOne({ where: { id }, relations: ['author'] }));
+  }
+
+  updateOne(id:number,blogentry:BlogEntry):Observable<BlogEntry>{
+    return from(this.blogRepository.update(id,blogentry)).pipe(
+        switchMap(()=>this.findOne(id))
+    )
+  }
+
+
+   deleteOne(id:number):Observable<any>{
+    return from(this.blogRepository.delete(id));
+   }
 }

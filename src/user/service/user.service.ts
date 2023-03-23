@@ -142,21 +142,21 @@ export class UserService {
         )
     }
 
-    validateUser(email:string,password:string):Observable<User>{
-        return this.findByMail(email).pipe(
-            switchMap((user:User)=>this.authservice.comparePassword(password,user.password).pipe(
-                map((match:boolean)=>{
-                      if(match){
-                        const {password,...result}=user;
+    validateUser(email: string, password: string): Observable<User> {
+        return from(this.userRepository.findOne({where:{email}, select: ['id', 'password', 'name', 'username', 'email', 'role', 'profileImage']})).pipe(
+            switchMap((user: User) => this.authservice.comparePassword(password, user.password).pipe(
+                map((match: boolean) => {
+                    if(match) {
+                        const {password, ...result} = user;
                         return result;
-                      }else{
+                    } else {
                         throw Error;
-                      }
+                    }
                 })
             ))
         )
-    }
 
+    }
     findByMail(email:string):Observable<User>{
         return from(this.userRepository.findOneBy({email}));
     }
