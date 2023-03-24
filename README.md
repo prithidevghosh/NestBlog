@@ -52,4 +52,6 @@ $ npm start
 
 
 ```
+## Testing the apis
 
+<p>Test the apis given in the postman file on the postman app </p>
