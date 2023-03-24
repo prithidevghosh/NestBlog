@@ -24,7 +24,16 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This is a Blog website API built on Nest JS , features included: 
+<ul>
+<li>User create & login</li>
+<li>set role of user (i.e - admin/author/editor/chiefeditor)</li>
+<li>Admin can view all registered users in a paginated format</li>
+<li>users can post any blog by logging in their account (JWT Authenticated)</li>
+<li>users can edit blog by logging in their account (JWT Authenticated)</li>
+<li>One can find any blog by the blogID</li>
+<li>One can see all blogs available in the database in PAGINATED form</li>
+</ul>
 
 ## Clone the repo
 ```bash
@@ -52,7 +61,6 @@ $ npm start
 
 
 ```
+## Testing the apis
 
-## Running the apis
-
-<b> Ther  </b>
+<p>Test the apis given in the postman file on the postman app </p>
