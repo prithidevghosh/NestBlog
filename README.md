@@ -57,7 +57,7 @@ git clone https://github.com/prithidevghosh/NestBlog.git
 $ npm install
 
 # watch mode
-$ npm start
+$ nest start:dev
 
 
 ```
