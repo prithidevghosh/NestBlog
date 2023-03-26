@@ -23,8 +23,9 @@
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
-<span><b>Refer to the production link given in "About" section to see complete features                                                         </b></span>
-This is a Blog website API built on Nest JS , features included: 
+<span><b>Refer to the production link given in "About" section to see complete features</b></span>
+
+<span>This is a Blog website API built on Nest JS , features included:</span> 
 <ul>
 <li>User create & login</li>
 <li>set role of user (i.e - admin/author/editor/chiefeditor)</li>
