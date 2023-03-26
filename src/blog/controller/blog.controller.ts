@@ -31,7 +31,7 @@ export class BlogController {
     @Get('')
     index(
         @Query('page')page:number=1,
-        @Query('limit')limit:number=2
+        @Query('limit')limit:number=5
     ){
         limit = limit > 100 ? 100 : limit;
         return this.blogservice.paginateAll({
