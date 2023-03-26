@@ -45,7 +45,7 @@ export class UserController {
    login(@Body()user:User):Observable<Object>{
          return this.userservice.login(user).pipe(
             map((jwt:string)=>{
-                return {access_token:jwt};
+                return {access_token:jwt,user};
             })
          )
    }
