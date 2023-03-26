@@ -14,7 +14,7 @@ export class BlogService {
     constructor(
         @InjectRepository(BlogEntryEntity) private readonly blogRepository: Repository<BlogEntryEntity>,
         private userservice: UserService
-    ) { }
+    ) {}
 
     create(user: User, blogentry: BlogEntry): Observable<BlogEntry> {
         blogentry.author = user;
